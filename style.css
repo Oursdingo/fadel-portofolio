@@ -26,7 +26,8 @@ html {
 }
 
 body {
-  zoom: 1.15; /* enlarge every element uniformly (text, images, spacing). Tune this one number. */
+  zoom: 1.15;
+  /* enlarge every element uniformly (text, images, spacing). Tune this one number. */
   background: var(--bg);
   color: var(--text);
   font-family: var(--font);
@@ -41,6 +42,7 @@ a {
   color: inherit;
   text-decoration: none;
 }
+
 img {
   display: block;
   max-width: 100%;
@@ -62,6 +64,7 @@ img {
   pointer-events: none;
   overflow: hidden;
 }
+
 .paw {
   position: absolute;
   width: 120px;
@@ -80,7 +83,8 @@ footer {
 
 /* ===================== NAV ===================== */
 .site-nav {
-  position: absolute; /* sits at the top of the page and scrolls away with the hero */
+  position: absolute;
+  /* sits at the top of the page and scrolls away with the hero */
   top: 0;
   left: 0;
   right: 0;
@@ -90,11 +94,13 @@ footer {
   justify-content: center;
   padding: 22px 24px;
 }
+
 .nav-inner {
   display: flex;
   align-items: center;
   gap: 30px;
 }
+
 .nav-inner a {
   font-weight: 700;
   font-size: 16px;
@@ -102,6 +108,7 @@ footer {
   color: #ededed;
   transition: color 0.2s;
 }
+
 .nav-inner a:hover {
   color: var(--orange);
 }
@@ -123,11 +130,13 @@ footer {
   box-shadow: 0 12px 36px rgba(0, 0, 0, 0.45);
   animation: navIn 0.4s cubic-bezier(0.2, 0.7, 0.3, 1);
 }
+
 @keyframes navIn {
   from {
     opacity: 0;
     transform: translateX(-50%) translateY(-18px);
   }
+
   to {
     opacity: 1;
     transform: translateX(-50%) translateY(0);
@@ -150,6 +159,7 @@ footer {
   border-radius: 12px;
   cursor: pointer;
 }
+
 .nav-burger span {
   width: 20px;
   height: 2px;
@@ -159,12 +169,15 @@ footer {
     transform 0.25s,
     opacity 0.2s;
 }
+
 .nav-burger.open span:nth-child(1) {
   transform: translateY(7px) rotate(45deg);
 }
+
 .nav-burger.open span:nth-child(2) {
   opacity: 0;
 }
+
 .nav-burger.open span:nth-child(3) {
   transform: translateY(-7px) rotate(-45deg);
 }
@@ -174,22 +187,26 @@ footer {
   padding: 90px 0 40px;
   position: relative;
 }
+
 .hero-title {
   font-size: clamp(38px, 6.2vw, 74px);
   font-weight: 800;
   line-height: 1.04;
   letter-spacing: -0.025em;
 }
+
 /* the brand heading is mobile-only (matches the original's mobile variant) */
 .hero-title--mobile {
   display: none;
 }
+
 .hero-avatars {
   display: inline-flex;
   gap: 6px;
   vertical-align: middle;
   margin-left: 8px;
 }
+
 .hero-avatars img {
   width: 0.82em;
   height: 0.82em;
@@ -197,6 +214,7 @@ footer {
   object-fit: cover;
   display: inline-block;
 }
+
 .btn-contact {
   display: inline-flex;
   align-items: center;
@@ -212,13 +230,16 @@ footer {
     transform 0.15s,
     filter 0.15s;
 }
+
 .btn-contact:hover {
   transform: translateY(-2px);
   filter: brightness(1.06);
 }
+
 .btn-contact .arrow {
   transition: transform 0.2s;
 }
+
 .btn-contact:hover .arrow {
   transform: translateX(4px);
 }
@@ -226,10 +247,12 @@ footer {
 .garfield {
   position: absolute;
   right: 2.5%;
-  bottom: 104.5%; /* anchor his base to the top edge of the videos... */
+  bottom: 104.5%;
+  /* anchor his base to the top edge of the videos... */
   width: clamp(110px, 17vw, 235px);
   /* ...then overlap by a small % of his OWN height so it scales on every screen size */
-  transform: translateY(7%) scaleX(-1); /* translateY = responsive overlap; scaleX = mirror (faces left) */
+  transform: translateY(7%) scaleX(-1);
+  /* translateY = responsive overlap; scaleX = mirror (faces left) */
   transform-origin: bottom center;
   z-index: 3;
   pointer-events: none;
@@ -252,15 +275,18 @@ footer {
   aspect-ratio: 16 / 9;
   background: #000;
 }
+
 .thumb img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform 0.4s ease;
 }
+
 .thumb:hover img {
   transform: scale(1.05);
 }
+
 .play {
   position: absolute;
   top: 50%;
@@ -274,6 +300,7 @@ footer {
     background 0.2s,
     transform 0.2s;
 }
+
 .play::after {
   content: "";
   position: absolute;
@@ -284,6 +311,7 @@ footer {
   border-width: 9px 0 9px 15px;
   border-color: transparent transparent transparent #fff;
 }
+
 .thumb:hover .play {
   background: #f00;
   transform: translate(-50%, -50%) scale(1.08);
@@ -297,11 +325,13 @@ footer {
   white-space: nowrap;
   margin: 36px 0;
 }
+
 .marquee-track {
   display: inline-flex;
   align-items: center;
   animation: scroll-left 28s linear infinite;
 }
+
 .marquee-track span {
   font-weight: 800;
   font-size: clamp(20px, 2.4vw, 30px);
@@ -309,10 +339,12 @@ footer {
   color: var(--orange-text);
   padding: 0 28px;
 }
+
 @keyframes scroll-left {
   from {
     transform: translateX(0);
   }
+
   to {
     transform: translateX(-50%);
   }
@@ -325,21 +357,18 @@ footer {
   max-width: var(--container);
   margin: 16px auto 28px;
   padding: 0 10px;
-  -webkit-mask-image: linear-gradient(
-    90deg,
-    transparent,
-    #000 6%,
-    #000 94%,
-    transparent
-  );
-  mask-image: linear-gradient(
-    90deg,
-    transparent,
-    #000 6%,
-    #000 94%,
-    transparent
-  );
+  -webkit-mask-image: linear-gradient(90deg,
+      transparent,
+      #000 6%,
+      #000 94%,
+      transparent);
+  mask-image: linear-gradient(90deg,
+      transparent,
+      #000 6%,
+      #000 94%,
+      transparent);
 }
+
 .clients-track {
   display: flex;
   gap: 30px;
@@ -347,9 +376,11 @@ footer {
   padding: 20px 16px;
   animation: scroll-left 34s linear infinite;
 }
+
 .clients:hover .clients-track {
   animation-play-state: paused;
 }
+
 .client {
   display: flex;
   flex-direction: column;
@@ -358,6 +389,7 @@ footer {
   width: 168px;
   flex: 0 0 auto;
 }
+
 .client-avatar {
   width: 158px;
   height: 158px;
@@ -366,6 +398,7 @@ footer {
   border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: 0 16px 34px rgba(0, 0, 0, 0.55);
 }
+
 .client-name {
   background: var(--orange);
   color: #fff;
@@ -374,6 +407,7 @@ footer {
   padding: 4px 20px;
   border-radius: 9px;
 }
+
 .client-subs {
   font-weight: 800;
   font-size: 16px;
@@ -384,16 +418,19 @@ footer {
 .work {
   padding: 10px 0 0;
 }
+
 .work-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 26px;
 }
+
 .project {
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
+
 .meta {
   background: var(--bg-card);
   border-radius: 12px;
@@ -402,11 +439,13 @@ footer {
   flex-direction: column;
   gap: 10px;
 }
+
 .meta-head {
   display: flex;
   align-items: center;
   gap: 12px;
 }
+
 .meta-head img {
   width: 44px;
   height: 44px;
@@ -414,17 +453,20 @@ footer {
   object-fit: cover;
   flex: 0 0 auto;
 }
+
 .meta-head .name {
   display: block;
   font-weight: 700;
   font-size: 16px;
 }
+
 .meta-head .subs {
   display: block;
   font-weight: 600;
   font-size: 13px;
   color: var(--orange);
 }
+
 .meta .quote {
   font-size: 15px;
   line-height: 1.5;
@@ -435,10 +477,12 @@ footer {
 .reviews {
   padding: 6px 0;
 }
+
 .reviews-grid {
   columns: 3;
   column-gap: 24px;
 }
+
 .review {
   break-inside: avoid;
   background: var(--bg-card-2);
@@ -447,11 +491,13 @@ footer {
   padding: 18px;
   margin-bottom: 24px;
 }
+
 .review-head {
   display: flex;
   align-items: center;
   gap: 12px;
 }
+
 .review-head img {
   width: 42px;
   height: 42px;
@@ -459,17 +505,20 @@ footer {
   object-fit: cover;
   flex: 0 0 auto;
 }
+
 .review-head .name {
   display: block;
   font-weight: 700;
   font-size: 16px;
 }
+
 .review-head .subs {
   display: block;
   font-weight: 600;
   font-size: 13px;
   color: var(--orange);
 }
+
 .review p {
   margin-top: 12px;
   font-size: 15px;
@@ -487,23 +536,27 @@ footer {
   padding-top: 30px;
   padding-bottom: 70px;
 }
+
 .footer-left h2 {
   font-size: clamp(28px, 4vw, 44px);
   font-weight: 800;
   line-height: 1.08;
   letter-spacing: -0.02em;
 }
+
 .footer-built {
   margin-top: 18px;
   color: var(--muted);
   font-size: 15px;
 }
+
 .footer-links {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   gap: 16px;
 }
+
 .footer-links a {
   display: inline-flex;
   align-items: center;
@@ -514,13 +567,25 @@ footer {
     transform 0.15s,
     filter 0.15s;
 }
+
+.dev-tag {
+  color: #f0833e;
+  cursor: pointer;
+}
+
+.dev-tag:hover {
+  color: #fff;
+}
+
 .footer-links a:hover {
   transform: translateX(-3px);
   filter: brightness(1.15);
 }
+
 .link-twitter {
   color: var(--orange);
 }
+
 .link-discord,
 .link-email {
   color: #fff;
@@ -534,6 +599,7 @@ footer {
     opacity 0.7s ease,
     transform 0.7s ease;
 }
+
 [data-reveal].in {
   opacity: 1;
   transform: none;
@@ -547,6 +613,7 @@ footer {
     justify-content: flex-end;
     padding: 14px 16px;
   }
+
   .site-nav.floating {
     top: 0;
     left: 0;
@@ -563,9 +630,11 @@ footer {
     border-radius: 0;
     animation: none;
   }
+
   .nav-burger {
     display: flex;
   }
+
   .nav-inner {
     position: absolute;
     top: 64px;
@@ -588,15 +657,18 @@ footer {
       transform 0.2s,
       visibility 0.2s;
   }
+
   .nav-inner.open {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
   }
+
   .nav-inner a {
     padding: 11px 14px;
     border-radius: 9px;
   }
+
   .nav-inner a:hover {
     background: var(--orange);
     color: #fff;
@@ -611,41 +683,51 @@ footer {
   .hero {
     padding: 84px 0 22px;
   }
+
   .hero-title--desktop {
     display: none;
   }
+
   .hero-title--mobile {
     display: block;
     font-size: clamp(34px, 9vw, 46px);
   }
+
   .btn-contact {
     margin-top: 22px;
   }
+
   /* nudge Garfield 2% lower on mobile */
   .garfield {
     bottom: 102%;
     transform: translateY(9%) scaleX(-1);
   }
 
+  y
+
   /* smaller client cards on phones */
   .clients-track {
     gap: 18px;
     padding: 14px 10px;
   }
+
   .client {
     width: 122px;
     gap: 9px;
   }
+
   .client-avatar {
     width: 112px;
     height: 112px;
     border-radius: 18px;
     box-shadow: 0 10px 22px rgba(0, 0, 0, 0.5);
   }
+
   .client-name {
     font-size: 15px;
     padding: 3px 14px;
   }
+
   .client-subs {
     font-size: 13px;
   }
@@ -655,46 +737,57 @@ footer {
   .hero-videos {
     grid-template-columns: 1fr;
   }
+
   .work-grid {
     grid-template-columns: 1fr;
   }
+
   .reviews-grid {
     columns: 2;
   }
+
   .footer {
     flex-direction: column;
     align-items: flex-start;
   }
+
   .footer-links {
     align-items: flex-start;
   }
 }
+
 @media (max-width: 540px) {
   .reviews-grid {
     columns: 1;
   }
+
   .hero {
     padding-top: 76px;
   }
+
   .hero-avatars img {
     width: 0.9em;
     height: 0.9em;
   }
+
   .paw {
     width: 80px;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   .marquee-track,
   .clients-track {
     animation: none;
   }
+
   [data-reveal] {
     opacity: 1;
     transform: none;
     transition: none;
   }
+
   html {
     scroll-behavior: auto;
   }
