@@ -54,3 +54,27 @@ if ("IntersectionObserver" in window) {
 } else {
   revealEls.forEach((el) => el.classList.add("in"));
 }
+
+// ---------- Inline video player (play on the site, no YouTube redirect) ----------
+document.querySelectorAll('a.thumb[href*="youtube.com/watch"]').forEach((thumb) => {
+  thumb.addEventListener("click", (e) => {
+    e.preventDefault();
+    if (thumb.classList.contains("playing")) return;
+    let id = null;
+    try {
+      id = new URL(thumb.href).searchParams.get("v");
+    } catch (_) {}
+    if (!id) return;
+    const iframe = document.createElement("iframe");
+    iframe.src =
+      "https://www.youtube.com/embed/" +
+      id +
+      "?autoplay=1&rel=0&modestbranding=1&playsinline=1";
+    iframe.title = "YouTube video player";
+    iframe.allow =
+      "autoplay; encrypted-media; picture-in-picture; fullscreen; web-share";
+    iframe.allowFullscreen = true;
+    thumb.classList.add("playing");
+    thumb.appendChild(iframe);
+  });
+});

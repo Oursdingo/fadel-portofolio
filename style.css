@@ -5,7 +5,8 @@
   --bg-card-2: #212121;
   --border: #303030;
   --orange: #f0833e;
-  --orange-text: #2c1c0c;
+  --orange-text: rgba(0, 0, 0, 0.6);
+  /* dark ink used on orange (names + marquee) */
   --text: #ffffff;
   --muted: #9a9a9a;
   --radius: 14px;
@@ -26,7 +27,7 @@ html {
 }
 
 body {
-  zoom: 1.15;
+  zoom: 1.2;
   /* enlarge every element uniformly (text, images, spacing). Tune this one number. */
   background: var(--bg);
   color: var(--text);
@@ -287,6 +288,20 @@ footer {
   transform: scale(1.05);
 }
 
+/* inline YouTube player (replaces the thumbnail on click — no redirect) */
+.thumb iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  z-index: 4;
+}
+
+.thumb.playing .play {
+  display: none;
+}
+
 .play {
   position: absolute;
   top: 50%;
@@ -386,31 +401,36 @@ footer {
   flex-direction: column;
   align-items: center;
   gap: 12px;
-  width: 168px;
+  width: 178px;
+  /* match the avatar so the name pill spans its full width */
   flex: 0 0 auto;
 }
 
 .client-avatar {
-  width: 158px;
-  height: 158px;
-  border-radius: 22px;
+  width: 178px;
+  height: 178px;
+  border-radius: 24px;
   object-fit: cover;
   border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: 0 16px 34px rgba(0, 0, 0, 0.55);
 }
 
 .client-name {
+  align-self: stretch;
+  /* pill spans the full avatar width */
+  text-align: center;
   background: var(--orange);
-  color: #fff;
+  color: var(--orange-text);
+  /* dark ink, same as the marquee */
   font-weight: 800;
-  font-size: 18px;
-  padding: 4px 20px;
-  border-radius: 9px;
+  font-size: 20px;
+  padding: 6px 14px;
+  border-radius: 10px;
 }
 
 .client-subs {
   font-weight: 800;
-  font-size: 16px;
+  font-size: 18px;
   color: #fff;
 }
 
@@ -712,7 +732,7 @@ footer {
   }
 
   .client {
-    width: 122px;
+    width: 112px;
     gap: 9px;
   }
 
