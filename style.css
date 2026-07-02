@@ -99,7 +99,7 @@ footer {
 .nav-inner {
   display: flex;
   align-items: center;
-  gap: 30px;
+  gap: 24px;
 }
 
 .nav-inner a {
@@ -112,6 +112,50 @@ footer {
 
 .nav-inner a:hover {
   color: var(--orange);
+}
+
+/* icons + language toggle grouped on the right */
+.nav-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  padding-left: 20px;
+  border-left: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.nav-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #ededed;
+  transition:
+    color 0.2s,
+    transform 0.15s;
+}
+.nav-icon:hover {
+  color: var(--orange);
+  transform: translateY(-1px);
+}
+
+.nav-lang {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: #ededed;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 5px 11px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition:
+    color 0.2s,
+    border-color 0.2s;
+}
+.nav-lang:hover {
+  color: var(--orange);
+  border-color: var(--orange);
 }
 
 /* floating state: re-appears as a translucent rounded pill once the hero is passed */
@@ -692,6 +736,21 @@ footer {
   .nav-inner a:hover {
     background: var(--orange);
     color: #fff;
+  }
+
+  /* icons + language toggle become a centered row in the dropdown */
+  .nav-actions {
+    border-left: none;
+    border-top: 1px solid var(--border);
+    padding-left: 0;
+    padding-top: 12px;
+    margin-top: 6px;
+    justify-content: center;
+    gap: 22px;
+  }
+  .nav-icon svg {
+    width: 22px;
+    height: 22px;
   }
 
   /* natural mobile scale (the reference isn't zoomed up like the desktop) */
