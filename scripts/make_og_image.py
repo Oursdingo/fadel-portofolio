@@ -137,9 +137,11 @@ def main():
         bg.alpha_composite(card, (cx, cy))
 
     out = bg.convert("RGB")
-    out_path = os.path.join(IMG, "og-image.png")
-    out.save(out_path, quality=92)
-    print("saved", out_path, out.size)
+    # JPEG, not PNG: WhatsApp silently drops og:image previews over ~300KB,
+    # and this scene (photos + flat colors) compresses far better as JPEG.
+    out_path = os.path.join(IMG, "og-image.jpg")
+    out.save(out_path, quality=85, optimize=True)
+    print("saved", out_path, out.size, f"{os.path.getsize(out_path)} bytes")
 
 
 if __name__ == "__main__":
