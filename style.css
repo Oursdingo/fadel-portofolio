@@ -328,8 +328,13 @@ footer {
   transition: transform 0.4s ease;
 }
 
-.thumb:hover img {
-  transform: scale(1.05);
+/* hover-driven visual effects only for devices with a real pointer (mouse).
+   On touch devices, an <a> with :hover styles needs an extra tap before the
+   click actually registers (WebKit "hover intent") — scoping this avoids that. */
+@media (hover: hover) and (pointer: fine) {
+  .thumb:hover img {
+    transform: scale(1.05);
+  }
 }
 
 /* inline YouTube player (replaces the thumbnail on click — no redirect) */
@@ -371,9 +376,11 @@ footer {
   border-color: transparent transparent transparent #fff;
 }
 
-.thumb:hover .play {
-  background: #f00;
-  transform: translate(-50%, -50%) scale(1.08);
+@media (hover: hover) and (pointer: fine) {
+  .thumb:hover .play {
+    background: #f00;
+    transform: translate(-50%, -50%) scale(1.08);
+  }
 }
 
 /* ===================== MARQUEE ===================== */
